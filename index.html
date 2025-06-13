@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>IPOMAP</title>
+  <style>
+    body {
+      background: #18181c;
+      color: #fff;
+      font-family: 'Noto Sans KR', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      display: flex;
+      align-items: center;
+      padding: 20px 40px 10px 40px;
+      background: #18181c;
+    }
+    .logo {
+      font-weight: bold;
+      font-size: 1.5em;
+      margin-right: 40px;
+    }
+    nav {
+      display: flex;
+      gap: 30px;
+      font-size: 1.1em;
+    }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      opacity: 0.8;
+    }
+    nav a.active {
+      opacity: 1;
+      font-weight: bold;
+    }
+    .login-btn {
+      margin-left: auto;
+      background: #2563eb;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      padding: 8px 18px;
+      font-size: 1em;
+      cursor: pointer;
+    }
+    .search-bar-wrapper {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      margin: 0 0 30px 0;
+    }
+    .search-bar {
+      width: 420px;
+      padding: 12px 20px;
+      border-radius: 24px;
+      border: none;
+      background: #23232a;
+      color: #fff;
+      font-size: 1.1em;
+      outline: none;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+    .search-bar::placeholder {
+      color: #aaa;
+      font-size: 1em;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 30px auto 0 auto;
+      padding: 0 40px;
+    }
+    h2 {
+      font-size: 1.3em;
+      margin-bottom: 30px;
+      font-weight: 500;
+    }
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px 18px;
+    }
+    .info-card {
+      background: #23232a;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      display: flex;
+      flex-direction: column;
+      min-height: 220px;
+      padding: 24px 20px 20px 20px;
+    }
+    .info-title {
+      font-size: 1.1em;
+      font-weight: bold;
+      margin-bottom: 12px;
+      color: #4f8cff;
+    }
+    .info-content {
+      font-size: 1em;
+      color: #eee;
+      line-height: 1.7;
+    }
+    .info-list {
+      margin: 0;
+      padding-left: 18px;
+      color: #b5c9ff;
+      font-size: 0.98em;
+    }
+    .info-list li {
+      margin-bottom: 6px;
+    }
+    .info-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 8px;
+      color: #b5c9ff;
+      font-size: 0.98em;
+    }
+    .info-table th, .info-table td {
+      padding: 4px 8px;
+      border-bottom: 1px solid #333;
+    }
+    .info-table th {
+      color: #fff;
+      font-weight: bold;
+      background: #23232a;
+    }
+    .sidebar {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 80px;
+      height: 100vh;
+      background: #18181c;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      padding: 40px 0 20px 0;
+      z-index: 100;
+      border-left: 1px solid #23232a;
+    }
+    .sidebar-icons {
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+      margin-top: 40px;
+    }
+    .sidebar button {
+      background: none;
+      border: none;
+      color: #fff;
+      font-size: 2em;
+      cursor: pointer;
+      opacity: 0.8;
+      transition: opacity 0.2s;
+    }
+    .sidebar button:hover {
+      opacity: 1;
+    }
+    .sidebar-bottom {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      align-items: center;
+    }
+    .circle-btn {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: #23232a;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5em;
+      border: none;
+      color: #fff;
+      margin-top: 10px;
+    }
+    @media (max-width: 900px) {
+      .info-grid { grid-template-columns: repeat(1, 1fr); }
+      .sidebar { display: none; }
+    }
+    @media (max-width: 600px) {
+      .container { padding: 0 10px; }
+      header { padding: 20px 10px 10px 10px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <span class="logo">IPOMAP</span>
+    <nav>
+      <a href="#" class="active">홈</a>
+      <a href="#">서비스</a>
+      <a href="#">기능</a>
+      <a href="#">수익모델</a>
+    </nav>
+    <button class="login-btn">로그인</button>
+  </header>
+  <div class="search-bar-wrapper">
+    <input type="text" class="search-bar" placeholder="IPO, 기업명, 산업명 등 검색" />
+  </div>
+  <main class="container">
+    <h2>IPO 트렌드와 인사이트, 한눈에</h2>
+    <div class="info-grid">
+      <div class="info-card">
+        <div class="info-title">서비스 소개</div>
+        <div class="info-content">
+          <b>IPOMAP</b>은 국내외 IPO 시장의 흐름, 주요 이슈, 공모 트렌드를 데이터 기반으로 분석해 투자자와 산업 종사자에게 전략적 인사이트를 제공하는 플랫폼입니다.
+        </div>
+      </div>
+      <div class="info-card">
+        <div class="info-title">주요 카테고리</div>
+        <ul class="info-list">
+          <li>IPO 트렌드 리포트 (월간/분기별 요약)</li>
+          <li>산업별 IPO 분석 (바이오, AI, 제조 등)</li>
+          <li>이번 주 IPO 요약 (일정, 경쟁률, 비교)</li>
+          <li>공모가 적정성 분석 및 수익률 평가</li>
+          <li>IPO 관련 뉴스/정책 브리핑</li>
+        </ul>
+      </div>
+      <div class="info-card">
+        <div class="info-title">핵심 기능</div>
+        <ul class="info-list">
+          <li>IPO 캘린더: 일정/상태별 필터 제공</li>
+          <li>기업 상세: 공모가, 경쟁률, 수익률, 유사기업 비교</li>
+          <li>산업/시장 대시보드: 업종별 동향, 성장률 시각화</li>
+          <li>이슈 브리핑: 거래소 공지, 규제 변화 요약</li>
+          <li>AI 뉴스 요약 (선택): 주요 기사 자동 요약</li>
+        </ul>
+      </div>
+      <div class="info-card">
+        <div class="info-title">MVP 예시</div>
+        <ul class="info-list">
+          <li>IPO 캘린더 (최근 1년 기준)</li>
+          <li>상장기업 상세 (공모가, 경쟁률, 수익률 등)</li>
+          <li>월간 트렌드 요약 리포트</li>
+          <li>산업별 상장 건수/공모금액 차트</li>
+        </ul>
+      </div>
+      <div class="info-card">
+        <div class="info-title">수익 모델</div>
+        <table class="info-table">
+          <tr><th>모델</th><th>설명</th></tr>
+          <tr><td>프리미엄 구독</td><td>일반 콘텐츠 무료, 산업분석/데이터 유료</td></tr>
+          <tr><td>리서치 파트너십</td><td>VC/증권사 맞춤 리포트 제작</td></tr>
+          <tr><td>광고 수익</td><td>IPO 주관사, IR회사 대상 광고</td></tr>
+          <tr><td>교육/컨설팅</td><td>상장 전략 워크숍 등</td></tr>
+        </table>
+      </div>
+      <div class="info-card">
+        <div class="info-title">예시 화면</div>
+        <div class="info-content">
+          <b>홈:</b> 이번 주 IPO 요약, 산업별 트렌드 차트, 공모가 리포트<br>
+          <b>기업 상세:</b> 공모가, 시초가, 수익률, 경쟁률, 유사기업<br>
+          <b>월간 리포트:</b> 월별 IPO 건수, 공모금액, 산업 비중 등 시각화
+        </div>
+      </div>
+    </div>
+  </main>
+  <aside class="sidebar">
+    <div class="sidebar-icons">
+      <button title="내 투자"><span>💼</span></button>
+      <button title="관심"><span>❤️</span></button>
+      <button title="최근 본"><span>🕒</span></button>
+      <button title="실시간"><span>⚡</span></button>
+    </div>
+    <div class="sidebar-bottom">
+      <button class="darkmode-toggle" title="다크모드"><span>🌙</span></button>
+      <button class="circle-btn" title="기타"><span>●</span></button>
+    </div>
+  </aside>
+</body>
+</html> 
